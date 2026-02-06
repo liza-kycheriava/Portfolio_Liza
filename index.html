@@ -30,7 +30,7 @@
       </div>
     </section>
 
-    <section id="om-meg" class="section">
+    <section id="om-meg" class="section fade-om-meg">
       <div class="info-card reveal">
         <span class="eyebrow">OM MEG</span>
         <h2 class="hero-headline">Medieprodusent med sans for redaksjonelle uttrykk og visuell rytme.</h2>
@@ -39,7 +39,7 @@
     </section>
 
     <!-- Skills pills (reference style) -->
-    <section class="ref-section ref-skills">
+    <section id="ferdigheter" class="ref-section ref-skills">
       <span class="ref-label">Skills</span>
       <div class="ref-skills-tags">
         <span class="ref-tag">Corporate Identity Design</span>
@@ -137,81 +137,147 @@
         <h2>Utvalgte prosjekter</h2>
       </div>
       <div class="project-grid">
-        <article class="project-card reveal hover-tilt">
-          <div class="preview warm"></div>
-          <div class="card-body">
-            <span class="tag">Video</span>
-            <h3>Festivalfilm</h3>
-            <p>Rytmisk klipp med varme toner.</p>
+        <a class="project-card reveal hover-tilt" href="https://www.youtube.com/watch?v=B7G_nByz-xM" target="_blank" rel="noopener noreferrer">
+          <div class="project-media">
+            <img class="spoiler-img" src="https://img.youtube.com/vi/B7G_nByz-xM/hqdefault.jpg" alt="Video tutorial thumbnail" loading="lazy">
+            <div class="spoiler-mask"></div>
+            <div class="play-icon" aria-hidden="true">▶</div>
           </div>
-        </article>
-        <article class="project-card reveal hover-tilt">
-          <div class="preview blush"></div>
-          <div class="card-body">
+          <div class="project-content">
+            <span class="tag">Video</span>
+            <h3>Podcast</h3>
+            <p>Samtale om media, påvirkning og kritisk tenkning.</p>
+          </div>
+        </a>
+
+        <a class="project-card reveal hover-tilt" href="https://www.youtube.com/watch?v=dc4XQBIxzF8" target="_blank" rel="noopener noreferrer">
+          <div class="project-media">
+            <img class="spoiler-img" src="https://img.youtube.com/vi/dc4XQBIxzF8/hqdefault.jpg" alt="Podcast video thumbnail" loading="lazy">
+            <div class="spoiler-mask"></div>
+            <div class="play-icon" aria-hidden="true">▶</div>
+          </div>
+          <div class="project-content">
+            <span class="tag">Video</span>
+            <h3>Commercial video</h3>
+            <p>Korte formater med tydelig budskap.</p>
+          </div>
+        </a>
+
+        <a class="project-card reveal hover-tilt" href="https://www.youtube.com/watch?v=g12iLciyD94" target="_blank" rel="noopener noreferrer">
+          <div class="project-media">
+            <img class="spoiler-img" src="https://img.youtube.com/vi/g12iLciyD94/hqdefault.jpg" alt="Podcast video thumbnail" loading="lazy">
+            <div class="spoiler-mask"></div>
+            <div class="play-icon" aria-hidden="true">▶</div>
+          </div>
+          <div class="project-content">
+            <span class="tag">Video</span>
+            <h3>Video tutorial</h3>
+            <p>Praktisk gjennomgang med klare steg.</p>
+          </div>
+        </a>
+
+        <a class="project-card reveal hover-tilt" href="https://www.youtube.com/watch?v=LxdcVm0ygu8" target="_blank" rel="noopener noreferrer">
+          <div class="project-media">
+            <img class="spoiler-img" src="https://img.youtube.com/vi/LxdcVm0ygu8/hqdefault.jpg" alt="Video tutorial thumbnail" loading="lazy">
+            <div class="spoiler-mask"></div>
+            <div class="play-icon" aria-hidden="true">▶</div>
+          </div>
+          <div class="project-content">
+            <span class="tag">Video</span>
+            <h3>Educational / advertising video</h3>
+            <p>Forklarer, inspirerer og bygger tillit.</p>
+          </div>
+        </a>
+
+        <a class="project-card reveal hover-tilt photo-trigger" href="#" data-gallery-start="0">
+          <div class="project-media photo-spoiler">
+            <img class="photo-preview" src="images/photo1.jpg" alt="Portrettserie forhåndsvisning" loading="lazy">
+            <span class="photo-callout">View photos</span>
+          </div>
+          <div class="project-content">
             <span class="tag">Foto</span>
             <h3>Portrettserie</h3>
-            <p>Analoge pasteller og korn.</p>
+            <p>Utvalgte fotografiske arbeider.</p>
           </div>
-        </article>
-        <article class="project-card reveal hover-tilt">
-          <div class="preview mint"></div>
-          <div class="card-body">
-            <span class="tag">Motion</span>
-            <h3>Typografisk intro</h3>
-            <p>Kinetisk type med klar rytme.</p>
-          </div>
-        </article>
-        <article class="project-card reveal hover-tilt">
-          <div class="preview sunshine"></div>
-          <div class="card-body">
-            <span class="tag">Design</span>
-            <h3>SoMe kit</h3>
-            <p>Runde former og subtil glød.</p>
-          </div>
-        </article>
+        </a>
       </div>
     </section>
 
-    <section id="kreativ-bakgrunn" class="section alt">
-      <div class="card reveal">
-        <p class="eyebrow">Kreativ bakgrunn</p>
-        <h2 class="section-title">11 år med klassisk kunsttrening gir trygghet i form, farge og komposisjon.</h2>
-        <p>Fra maleri og skisse til digitale uttrykk — grunnlaget er alltid sansen for lys, tekstur og balanse.</p>
+    <div class="gallery-modal" role="dialog" aria-modal="true" aria-label="Photo gallery">
+      <div class="gallery-backdrop"></div>
+      <div class="gallery-frame">
+        <button class="gallery-close" aria-label="Close gallery">×</button>
+        <button class="gallery-nav prev" aria-label="Previous photo">←</button>
+        <div class="gallery-image-wrap">
+          <img class="gallery-image" src="" alt="Gallery photo">
+        </div>
+        <button class="gallery-nav next" aria-label="Next photo">→</button>
+      </div>
+    </div>
+
+    <section id="kreativ-bakgrunn" class="section alt fact-block fade-soft" aria-labelledby="fact-title">
+      <div class="fact-grid">
+        <div class="fact-heading">
+          <p class="fact-kicker">Interesting fact about me</p>
+          <h2 id="fact-title" class="fact-title">A few things you should know about me</h2>
+        </div>
+        <div class="fact-body">
+          <p class="fact-copy">
+            Jeg har bakgrunn fra kunstakademi og mange år med klassisk kunsttrening. Jeg har jobbet med maleri og laget kunstverk på bestilling, noe som har gitt meg et sterkt visuelt blikk og en tydelig forståelse for lys, farger, komposisjon og balanse. Denne erfaringen tar jeg med meg inn i mitt digitale og kreative arbeid i dag.
+          </p>
+        </div>
       </div>
     </section>
 
-    <section id="ambisjoner" class="section highlight">
-      <div class="section-header reveal">
-        <p class="eyebrow">Ambisjoner</p>
-        <h2 class="section-title">Ønsker å utvikle meg videre innen media, visuell kommunikasjon og kreative prosjekter.</h2>
+    <section id="ambisjoner" class="section ambitions-block fade-soft" aria-labelledby="ambition-title">
+      <div class="ambitions-inner">
+        <p class="ambitions-kicker">Ambisjoner</p>
+        <h2 id="ambition-title" class="ambitions-title">Ønsker å utvikle meg videre innen media, visuell kommunikasjon og kreative prosjekter.</h2>
       </div>
     </section>
 
-    <section id="styrker" class="section">
-      <div class="section-header reveal">
+    <section id="styrker" class="section values-section fade-soft" aria-labelledby="values-title">
+      <div class="values-header">
         <p class="eyebrow">Styrker</p>
-        <h2 class="strong-heading poppins-bold text-light">Det jeg er kjent for.</h2>
+        <h2 id="values-title" class="values-title">Det jeg er kjent for</h2>
       </div>
-      <div class="pill-row reveal">
-        <span class="pill">Kreativ</span>
-        <span class="pill">Visuell</span>
-        <span class="pill">Strukturert</span>
-        <span class="pill">Lærevillig</span>
-        <span class="pill">Selvstendig</span>
+      <div class="values-row">
+        <span class="value-item">Kreativ</span>
+        <span class="value-item">Visuell</span>
+        <span class="value-item">Strukturert</span>
+        <span class="value-item">Lærevillig</span>
+        <span class="value-item">Selvstendig</span>
       </div>
     </section>
   </main>
 
   <footer id="kontakt" class="footer">
     <div class="footer-content">
-      <div>
+      <div class="contact-head">
         <p class="name">Portfolio © 2026</p>
-        <p class="contact-line">Telefon: +47 925 32 350</p>
         <p class="contact-line">Adresse: Brennbakkvegen 11D, 2318 Hamar</p>
-        <p class="contact-line">E-post: <a href="mailto:0960876677kla@gmail.com">0960876677kla@gmail.com</a></p>
-        <p class="contact-line">Instagram: <a href="https://instagram.com/elizabe_.th" target="_blank" rel="noopener">@elizabe_.th</a></p>
       </div>
-      <a class="btn btn-small" href="mailto:0960876677kla@gmail.com">Kontakt meg</a>
+      <div class="contact-grid">
+        <a class="contact-chip hover-animate" href="tel:+4792532350">
+          <span class="contact-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 3.1 5.18 2 2 0 0 1 5 3h3a1 1 0 0 1 1 .78c.12.59.3 1.16.54 1.71a1 1 0 0 1-.23 1.08l-1.3 1.3a16 16 0 0 0 6.42 6.42l1.3-1.3a1 1 0 0 1 1.08-.23c.55.24 1.12.42 1.71.54a1 1 0 0 1 .78 1z"/></svg>
+          </span>
+          <span class="contact-text">+47 925 32 350</span>
+        </a>
+        <a class="contact-chip hover-animate" href="mailto:0960876677kla@gmail.com">
+          <span class="contact-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </span>
+          <span class="contact-text">0960876677kla@gmail.com</span>
+        </a>
+        <a class="contact-chip hover-animate" href="https://instagram.com/elizabe_.th" target="_blank" rel="noopener">
+          <span class="contact-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5" ry="5"/><circle cx="12" cy="12" r="3.4"/><circle cx="17.2" cy="6.8" r="0.9"/></svg>
+          </span>
+          <span class="contact-text">@elizabe_.th</span>
+        </a>
+      </div>
+      <a class="btn btn-small hover-animate" href="mailto:0960876677kla@gmail.com">Kontakt meg</a>
     </div>
   </footer>
 

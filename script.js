@@ -57,7 +57,7 @@ tiltElements.forEach(el => {
 const softwareRows = document.querySelectorAll(".ref-soft-row");
 
 const animateCount = (el, target) => {
-  const duration = 900;
+  const duration = 1000;
   const start = performance.now();
 
   const tick = now => {
@@ -73,8 +73,9 @@ const animateCount = (el, target) => {
 
 const activateRow = row => {
   const level = Number(row.dataset.level || 0);
+  const fill = row.querySelector(".ref-soft-fill");
   const valueEl = row.querySelector(".ref-soft-value");
-  row.classList.add("active");
+  if (fill) fill.style.width = `${level}%`;
   if (valueEl && !row.dataset.animated) {
     animateCount(valueEl, level);
     row.dataset.animated = "true";
@@ -83,18 +84,18 @@ const activateRow = row => {
 
 if (softwareRows.length) {
   softwareRows.forEach((row, idx) => {
-    const level = Number(row.dataset.level || 0);
-    row.style.setProperty("--level", (level / 100).toFixed(3));
     row.style.setProperty("--i", idx);
+    const level = Number(row.dataset.level || 0);
+    const fill = row.querySelector(".ref-soft-fill");
+    const valueEl = row.querySelector(".ref-soft-value");
+    if (fill) {
+      fill.style.width = "0%";
+    }
+    if (valueEl) valueEl.textContent = "0%";
   });
 
   if (prefersReducedMotion || !("IntersectionObserver" in window)) {
-    softwareRows.forEach(row => {
-      row.classList.add("active");
-      const level = Number(row.dataset.level || 0);
-      const valueEl = row.querySelector(".ref-soft-value");
-      if (valueEl) valueEl.textContent = `${level}%`;
-    });
+    softwareRows.forEach(row => activateRow(row));
   } else {
     const softObserver = new IntersectionObserver(
       entries => {
@@ -105,9 +106,107 @@ if (softwareRows.length) {
           }
         });
       },
-      { threshold: 0.3 }
+      { threshold: 0.25 }
     );
 
     softwareRows.forEach(row => softObserver.observe(row));
   }
+}
+
+// Fade-in animation for target sections
+const fades = document.querySelectorAll(".fade-soft");
+
+fades.forEach((section, idx) => {
+  section.classList.add("fade-start");
+  section.style.setProperty("--fade-delay", `${idx * 90}ms`);
+});
+
+if (fades.length) {
+  const fadeObserver = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.transitionDelay = entry.target.style.getPropertyValue("--fade-delay") || "0ms";
+          entry.target.classList.add("fade-in");
+          entry.target.classList.remove("fade-start");
+          fadeObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  fades.forEach(section => fadeObserver.observe(section));
+}
+
+// Photo gallery modal
+const galleryModal = document.querySelector(".gallery-modal");
+const galleryImage = document.querySelector(".gallery-image");
+const photoTrigger = document.querySelector(".photo-trigger");
+const galleryPrev = document.querySelector(".gallery-nav.prev");
+const galleryNext = document.querySelector(".gallery-nav.next");
+const galleryClose = document.querySelector(".gallery-close");
+const galleryBackdrop = document.querySelector(".gallery-backdrop");
+
+const galleryPhotos = Array.from({ length: 12 }, (_, i) => `images/photo${i + 1}.jpg`);
+let currentPhoto = 0;
+
+const showPhoto = idx => {
+  currentPhoto = (idx + galleryPhotos.length) % galleryPhotos.length;
+  const src = galleryPhotos[currentPhoto];
+  if (galleryImage) {
+    galleryImage.classList.remove("show");
+    galleryImage.onload = () => galleryImage.classList.add("show");
+    galleryImage.src = src;
+    galleryImage.alt = `Gallery photo ${currentPhoto + 1}`;
+  }
+};
+
+const openGallery = startIdx => {
+  if (!galleryModal) return;
+  galleryModal.classList.add("active");
+  document.body.style.overflow = "hidden";
+  showPhoto(startIdx || 0);
+};
+
+const closeGallery = () => {
+  if (!galleryModal) return;
+  galleryModal.classList.remove("active");
+  document.body.style.overflow = "";
+};
+
+if (photoTrigger && galleryModal) {
+  photoTrigger.addEventListener("click", e => {
+    e.preventDefault();
+    openGallery(Number(photoTrigger.dataset.galleryStart) || 0);
+  });
+}
+
+galleryPrev?.addEventListener("click", () => showPhoto(currentPhoto - 1));
+galleryNext?.addEventListener("click", () => showPhoto(currentPhoto + 1));
+galleryClose?.addEventListener("click", closeGallery);
+galleryBackdrop?.addEventListener("click", closeGallery);
+
+document.addEventListener("keydown", e => {
+  if (!galleryModal?.classList.contains("active")) return;
+  if (e.key === "Escape") closeGallery();
+  if (e.key === "ArrowLeft") showPhoto(currentPhoto - 1);
+  if (e.key === "ArrowRight") showPhoto(currentPhoto + 1);
+});
+
+// Om meg fade-in
+const omMeg = document.querySelector(".fade-om-meg");
+if (omMeg) {
+  const omObserver = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          omMeg.classList.add("visible");
+          omObserver.unobserve(omMeg);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+  omObserver.observe(omMeg);
 }
